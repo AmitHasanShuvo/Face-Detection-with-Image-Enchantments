@@ -1,4 +1,4 @@
-# Face-Detection-Web-App
+# Face Detection with different Image Enchantments
 
 # Description
 
