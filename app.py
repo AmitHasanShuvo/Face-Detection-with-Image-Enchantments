@@ -13,6 +13,8 @@ def load_image(img):
 face_cascade = cv2.CascadeClassifier('opencv-master/data/haarcascades/haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('opencv-master/data/haarcascades/haarcascade_eye.xml')
 smile_cascade = cv2.CascadeClassifier('opencv-master/data/haarcascades/haarcascade_smile.xml')
+
+
 def detect_faces(our_image):
 	new_img = np.array(our_image.convert('RGB'))
 	img = cv2.cvtColor(new_img,1)
@@ -74,6 +76,7 @@ def main():
 		st.subheader('Face Detection')
 
 		image_file = st.file_uploader('Upload Image',type=['jpg','png','jpeg'])
+		#global our_image
 		if image_file is not None:
 			our_image = Image.open(image_file)
 			st.text('Original Image')
@@ -106,7 +109,7 @@ def main():
 			#st.write(new_img)
 			st.image(blur_img)
 		else:
-			st.image(our_image,width=300)
+			st.image((our_image),width=300)
 
 		# Face detection
 
@@ -146,8 +149,3 @@ def main():
 		st.text('2. https://www.youtube.com/watch?v=p80IQSNf7LU&t=398s&pp=qAMBugMGCgJhchAB')
 if __name__ == '__main__':
 	main()
-
-#face_cascade = cv2.CascadeClassifier('/opencv-master/data/haarcascades/haarcascade_frontalface_default.xml')
-#eye_cascade = cv2.CascadeClassifier('/opencv-master/data/haarcascades/haarcascade_eye.xml')
-#smile_cascade = cv2.CascadeClassifier('/opencv-master/data/haarcascades/haarcascade_smile.xml')
-
